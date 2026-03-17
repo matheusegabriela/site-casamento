@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Convite — Escolha seu lado</title>
   <style>
-    :root{
+    :root {
       --text: #111;
-      --muted: rgba(17,17,17,0.65);
-      --card: rgba(255,255,255,0.85);
-      --border: rgba(0,0,0,0.14);
-      --shadow: 0 18px 60px rgba(0,0,0,0.14);
+      --muted: rgba(17, 17, 17, 0.65);
+      --card: rgba(255, 255, 255, 0.85);
+      --border: rgba(0, 0, 0, 0.14);
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.14);
       --radius: 22px;
       --max: 1100px;
     }
 
-    *{ box-sizing: border-box; }
-    body{
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
       margin: 0;
       font-family: Arial;
       color: var(--text);
@@ -27,35 +31,36 @@
       padding: 24px 16px;
     }
 
-    .wrap{
+    .wrap {
       width: 100%;
       max-width: var(--max);
     }
 
-    .top{
+    .top {
       display: grid;
       gap: 6px;
       margin-bottom: 16px;
       text-align: center;
     }
 
-    .title{
+    .title {
       font-size: 28px;
       font-weight: 900;
       letter-spacing: 0.2px;
     }
-    .subtitle{
+
+    .subtitle {
       color: var(--muted);
       font-size: 14px;
     }
 
-    .grid{
+    .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
     }
 
-    .choice{
+    .choice {
       position: relative;
       border-radius: var(--radius);
       border: 1px solid var(--border);
@@ -71,69 +76,75 @@
       transition: transform .10s ease, border .2s ease;
     }
 
-    .choice:hover{
+    .choice:hover {
       transform: translateY(-2px);
-      border-color: rgba(0,0,0,0.25);
+      border-color: rgba(0, 0, 0, 0.25);
     }
 
-    .hero{
+    .hero {
       position: relative;
       display: grid;
       place-items: center;
       padding: 18px;
     }
 
-    .img{
+    .img {
       width: 100%;
       height: 100%;
       min-height: 320px;
       border-radius: 18px;
-      border: 1px solid rgba(0,0,0,0.12);
-      background: linear-gradient(135deg, rgba(0,0,0,0.06), rgba(0,0,0,0.02));
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.02));
       overflow: hidden;
       display: grid;
       place-items: center;
       font-weight: 700;
-      color: rgba(0,0,0,0.45);
+      color: rgba(0, 0, 0, 0.45);
       text-align: center;
       padding: 10px;
     }
 
     /* Você vai trocar o background-image aqui depois */
-    .img.noivo{
+    .img.noivo {
       background-image: url("assets/img/Noivo.png");
-      background-size: 152%;
-      background-position: center 40%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%; 
+      height: 400px;
     }
 
-    .img.noiva{
+    .img.noiva {
       background-image: url("assets/img/Noiva.png");
-      background-size: 157%;
-      background-position: center 40%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%; 
+      height: 400px;
     }
 
-    .label{
+    .label {
       padding: 14px 16px;
       display: grid;
       gap: 6px;
-      background: rgba(255,255,255,0.92);
-      border-top: 1px solid rgba(0,0,0,0.10);
+      background: rgba(255, 255, 255, 0.92);
+      border-top: 1px solid rgba(0, 0, 0, 0.10);
     }
 
-    .label h2{
+    .label h2 {
       margin: 0;
       font-size: 18px;
       font-weight: 900;
     }
 
-    .label p{
+    .label p {
       margin: 0;
       color: var(--muted);
       font-size: 13px;
       line-height: 1.4;
     }
 
-    .pill{
+    .pill {
       position: absolute;
       top: 14px;
       left: 14px;
@@ -142,25 +153,38 @@
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0.2px;
-      border: 1px solid rgba(0,0,0,0.12);
-      background: rgba(255,255,255,0.75);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: rgba(255, 255, 255, 0.75);
       backdrop-filter: blur(8px);
     }
 
-    .pill.noivo{ border-color: rgba(180, 0, 0, 0.25); }
-    .pill.noiva{ border-color: rgba(255, 105, 180, 0.28); }
+    .pill.noivo {
+      border-color: rgba(180, 0, 0, 0.25);
+    }
 
-    .footer{
+    .pill.noiva {
+      border-color: rgba(255, 105, 180, 0.28);
+    }
+
+    .footer {
       margin-top: 14px;
       text-align: center;
       color: var(--muted);
       font-size: 12px;
     }
 
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
-      .choice{ min-height: 380px; }
-      .title{ font-size: 24px; }
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .choice {
+        min-height: 380px;
+      }
+
+      .title {
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -174,32 +198,32 @@
 
     <div class="grid">
       <!-- NOIVO -->
-     <a class="choice" href="home.html?tema=noivo">
-  <div class="hero">
-    <div class="pill noivo">Lado do Noivo</div>
+      <a class="choice" href="home.html?tema=noivo">
+        <div class="hero">
+          <div class="pill noivo">Lado do Noivo</div>
 
-    <div class="img noivo"></div> <!-- ESSA DIV É A IMAGEM -->
-  </div>
+          <div class="img noivo"></div> <!-- ESSA DIV É A IMAGEM -->
+        </div>
 
-  <div class="label">
-    <h2>Tema do Noivo</h2>
-    <p>Que a força esteja com você. Clique para entrar.</p>
-  </div>
-</a>
+        <div class="label">
+          <h2>Tema do Noivo</h2>
+          <p>Que a força esteja com você. Clique para entrar.</p>
+        </div>
+      </a>
 
       <!-- NOIVA -->
-<a class="choice" href="home.html?tema=noiva">
-  <div class="hero">
-    <div class="pill noiva">Lado da Noiva</div>
+      <a class="choice" href="home.html?tema=noiva">
+        <div class="hero">
+          <div class="pill noiva">Lado da Noiva</div>
 
-    <div class="img noiva"></div> <!-- ESSA DIV É A IMAGEM -->
-  </div>
+          <div class="img noiva"></div> <!-- ESSA DIV É A IMAGEM -->
+        </div>
 
-  <div class="label">
-    <h2>Tema da Noiva</h2>
-    <p>Vivendo o meu para sempre. Clique para entrar.</p>
-  </div>
-</a>
+        <div class="label">
+          <h2>Tema da Noiva</h2>
+          <p>Vivendo o meu para sempre. Clique para entrar.</p>
+        </div>
+      </a>
 
     </div>
 
@@ -208,4 +232,5 @@
     </div>
   </div>
 </body>
+
 </html>

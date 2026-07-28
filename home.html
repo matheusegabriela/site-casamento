@@ -127,60 +127,150 @@
 
 
     <!-- PRESENTES -->
-     <style>
-    /* Remove o sublinhado dos links da lista de presentes */
-    .list a {
-        text-decoration: none !important;
-    }
-</style>
-    <section class="panel" id="presentes">
-      <div class="card">
-        <h1>Presentes</h1>
-        <p class="muted">
-          Se você quiser nos presentear, deixamos aqui nosso pix.
-          Essa lista é apenas uma sugestão simbólica de presentes. Caso queira nos presentear, 
-          você pode escolher um item da lista e enviar o valor correspondente via Pix. 
-          Qualquer valor será recebido com muito carinho! 💙
+<section id="presentes" class="panel">
+
+    <div class="card">
+
+        <h2>💝 Presentear os Noivos</h2>
+
+        <p class="muted" style="text-align:center;max-width:800px;margin:auto;">
+            O maior presente é ter você conosco neste dia tão especial.
+            <br><br>
+            Caso deseje nos presentear via Pix, escolha abaixo um presente simbólico.
+            Após escolher, basta preencher seus dados e enviaremos nossa chave Pix.
         </p>
 
-        <h2>Pix</h2>
-        <div class="pix-box">
-          <div>
-            <div class="pix-label">Chave Pix</div>
-            <div class="pix-key" id="pixKey">737da1f3-1dce-49a6-8e0c-5db49f7b7d1a</div>
-          </div>
-          <button class="primary" id="copyPix" type="button">Copiar</button>
+        <br><br>
+
+        <h3 style="text-align:center;">🎁 Escolha um presente</h3>
+
+<select id="presenteSelect" class="input" onchange="atualizarPresente()">
+
+    <option value="">Selecione um presente...</option>
+
+    <option value="Jogo de Taças|200">🍷 Jogo de Taças - R$ 200</option>
+
+    <option value="Conjunto de Pratos|240">🍽️ Conjunto de Pratos - R$ 240</option>
+
+    <option value="Kit de Toalhas|260">🛁 Kit de Toalhas - R$ 260</option>
+
+    <option value="Conjunto de Talheres|280">🍴 Conjunto de Talheres - R$ 280</option>
+
+    <option value="Liquidificador|300">🥤 Liquidificador - R$ 300</option>
+
+    <option value="Sanduicheira|340">🥪 Sanduicheira - R$ 340</option>
+
+    <option value="Controle para videogame|360">🎮 Controle para videogame - R$ 360</option>
+
+    <option value="Jogo de Panelas|400">🍳 Jogo de Panelas - R$ 400</option>
+
+    <option value="Tapete para Sala|450">🏠 Tapete para Sala - R$ 450</option>
+
+    <option value="Jogo novo para jogar juntos|500">🎮 Jogo novo para jogar juntos - R$ 500</option>
+
+    <option value="Conjunto de Travesseiros|550">🛏️ Conjunto de Travesseiros - R$ 550</option>
+
+    <option value="Aspirador de Pó|600">🧹 Aspirador de Pó - R$ 600</option>
+
+    <option value="Luminária Decorativa|650">💡 Luminária Decorativa - R$ 650</option>
+
+    <option value="Processador de Alimentos|700">🥣 Processador de Alimentos - R$ 700</option>
+
+    <option value="Jogo de Cama|750">🛌 Jogo de Cama - R$ 750</option>
+
+    <option value="Jantar Romântico Especial|1000">🍷 Jantar Romântico Especial - R$ 1.000</option>
+
+    <option value="Conjunto de Malas|1350">🧳 Conjunto de Malas - R$ 1.350</option>
+
+    <option value="Ajuda na Lua de Mel|1500">✈️ Ajuda na Lua de Mel - R$ 1.500</option>
+
+    <option value="Ajuda para comprar o GTA VI|1700">🎮 Ajuda para comprar o GTA VI - R$ 1.700</option>
+
+    <option value="Viagem Romântica|1900">🌍 Viagem Romântica - R$ 1.900</option>
+
+    <option value="Presente Surpresa|2000">🎁 Presente Surpresa - R$ 2.000</option>
+
+</select>
+
+<div id="formPresente">
+
+    <label>🎁 Presente escolhido</label>
+
+    <input
+        id="presenteEscolhido"
+        class="input"
+        readonly>
+
+    <label>💰 Valor</label>
+
+    <input
+        id="valorEscolhido"
+        class="input"
+        readonly>
+
+    <label>👤 Seu nome</label>
+
+    <input
+        id="nomePix"
+        class="input"
+        placeholder="Digite seu nome">
+
+    <label>💌 Mensagem para os noivos</label>
+
+    <textarea
+        id="mensagemPix"
+        class="input"
+        rows="5"
+        placeholder="Escreva uma mensagem..."></textarea>
+
+    <button class="primary" onclick="enviarPix()">
+        Continuar ❤️
+    </button>
+
+</div>
+
+        <div id="pixFinal" style="display:none;text-align:center;">
+
+            <h2>❤️ Muito obrigado!</h2>
+
+            <p>
+                Sua mensagem foi enviada com sucesso.
+                <br><br>
+                Agora utilize a chave Pix abaixo.
+            </p>
+
+            <img
+                src="assets/img/pix/qr-pix.png"
+                alt="QR Code Pix"
+                class="pix-image">
+
+            <br><br>
+
+            <div class="pix-key">
+
+                <strong>Chave Pix</strong>
+
+                <br><br>
+
+                <span id="pixKey">
+                    737da1f3-1dce-49a6-8e0c-5db49f7b7d1a
+                </span>
+
+            </div>
+
+            <br>
+
+            <button class="primary" onclick="copiarPix()">
+
+                📋 Copiar chave Pix
+
+            </button>
+
         </div>
 
-        <h2>Lista de presentes - Valores simbólicos</h2>
-          <ul class="list gift-grid">
-            <li><a href="#" class="gift-item texto-preto"><span>Jogo de Taças</span> <strong>R$200</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Conjunto de Pratos</span> <strong>R$240</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Kit de Toalhas</span> <strong>R$260</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Conjunto de Talheres</span> <strong>R$280</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Liquidificador</span> <strong>R$300</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Sanduicheira</span> <strong>R$340</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>🎮 Controle para videogame</span> <strong>R$360</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Jogo de Panelas</span> <strong>R$400</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Tapete para sala</span> <strong>R$450</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>🎮 Jogo novo para jogar juntos</span> <strong>R$500</strong></a>
-            </li>
-            <li><a href="#" class="gift-item texto-preto"><span>Conjunto de travesseiros</span> <strong>R$550</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Aspirador de pó</span> <strong>R$600</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Luminária decorativa</span> <strong>R$650</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Jogo de cama</span> <strong>R$750</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Processador de alimentos</span> <strong>R$700</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Jantar romântico especial</span> <strong>R$1000</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Conjunto de malas</span> <strong>R$1350</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Ajuda na lua de mel</span> <strong>R$1500</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>🎮 comprar o GTA VI</span> <strong>R$1700</strong></a>
-            </li>
-            <li><a href="#" class="gift-item texto-preto"><span>Viagem romântica</span> <strong>R$1900</strong></a></li>
-            <li><a href="#" class="gift-item texto-preto"><span>Presente surpresa</span> <strong>R$2000</strong></a></li>
-          </ul>
-          </div>
-      </div>
-    </section>
+    </div>
+
+</section>
 
     <!-- RSVP (Google Forms) -->
     <section class="panel" id="rsvp">

@@ -190,3 +190,117 @@ END:VCALENDAR
     }
   }
 })();
+async function enviarPix() {
+
+    const presente = document.getElementById("presenteEscolhido").value.trim();
+    const valor = document.getElementById("valorEscolhido").value.trim();
+    const nome = document.getElementById("nomePix").value.trim();
+    const mensagem = document.getElementById("mensagemPix").value.trim();
+
+    if (presente === "") {
+        alert("Escolha um presente.");
+        return;
+    }
+
+    if (nome === "") {
+        alert("Informe seu nome.");
+        return;
+    }
+
+    try {
+
+        await fetch("https://script.google.com/macros/s/AKfycbygQ2aZKRi3OOokwWdjZ84-7Njosq6rXoqW7uy7MXY4kwwP71OEOnGzYY-wkicT1uII3g/exec", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                nome: nome,
+                presente: presente,
+                valor: valor,
+                mensagem: mensagem
+
+            })
+
+        });
+
+        document.getElementById("formPresente").style.display = "none";
+        document.getElementById("pixFinal").style.display = "block";
+
+    } catch (e) {
+
+        console.error(e);
+        alert("Erro ao enviar os dados.");
+
+    }
+
+}
+
+function atualizarPresente() {
+
+    const select = document.getElementById("presenteSelect");
+
+    if (select.value === "") {
+
+        document.getElementById("presenteEscolhido").value = "";
+        document.getElementById("valorEscolhido").value = "";
+        return;
+
+    }
+
+    const dados = select.value.split("|");
+
+    document.getElementById("presenteEscolhido").value = dados[0];
+    document.getElementById("valorEscolhido").value = "R$ " + dados[1];
+
+}
+
+try{
+
+await fetch("https://script.google.com/macros/s/AKfycbygQ2aZKRi3OOokwWdjZ84-7Njosq6rXoqW7uy7MXY4kwwP71OEOnGzYY-wkicT1uII3g/exec",{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify({
+
+nome:nome,
+
+mensagem:mensagem,
+
+valor:valor
+
+})
+
+});
+
+document.getElementById("pixForm").style.display="none";
+
+document.getElementById("pixResultado").style.display="block";
+
+}catch(e){
+
+alert("Erro ao enviar.");
+
+console.log(e);
+
+}
+
+function copiarPix() {
+
+    const chave = document.getElementById("pixKey").innerText.trim();
+
+    navigator.clipboard.writeText(chave);
+
+    alert("Chave Pix copiada!");
+
+}

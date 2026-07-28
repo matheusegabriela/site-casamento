@@ -28,24 +28,6 @@ document.querySelectorAll("[data-go]").forEach(btn => {
 });
 
 // =========================
-// Copiar Pix
-// =========================
-
-const copyBtn = document.getElementById("copyPix");
-const pixKeyEl = document.getElementById("pixKey");
-
-if (copyBtn && pixKeyEl) {
-  copyBtn.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(pixKeyEl.textContent.trim());
-      copyBtn.textContent = "Copiado!";
-      setTimeout(() => (copyBtn.textContent = "Copiar"), 1400);
-    } catch (e) {
-      alert("Não consegui copiar automaticamente. Selecione e copie a chave manualmente.");
-    }
-  });
-}
-// =========================
 // SAVE THE DATE - ICS
 // =========================
 
@@ -256,42 +238,6 @@ function atualizarPresente() {
 
     document.getElementById("presenteEscolhido").value = dados[0];
     document.getElementById("valorEscolhido").value = "R$ " + dados[1];
-
-}
-
-try{
-
-await fetch("https://script.google.com/macros/s/AKfycbygQ2aZKRi3OOokwWdjZ84-7Njosq6rXoqW7uy7MXY4kwwP71OEOnGzYY-wkicT1uII3g/exec",{
-
-method:"POST",
-
-headers:{
-
-"Content-Type":"application/json"
-
-},
-
-body:JSON.stringify({
-
-nome:nome,
-
-mensagem:mensagem,
-
-valor:valor
-
-})
-
-});
-
-document.getElementById("pixForm").style.display="none";
-
-document.getElementById("pixResultado").style.display="block";
-
-}catch(e){
-
-alert("Erro ao enviar.");
-
-console.log(e);
 
 }
 

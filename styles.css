@@ -646,82 +646,204 @@ resize:vertical;
 min-height:120px;
 
 }
-/* ===== PRESENTES ===== */
+/* ==========================
+   PRESENTES
+========================== */
 
-#presentes{
+#presentes .card{
     max-width:900px;
     margin:auto;
+    padding:40px;
+}
+
+#presentes h2{
+    text-align:center;
+    margin-bottom:15px;
 }
 
 #presentes h3{
-    margin:30px 0 15px;
+    text-align:center;
+    margin:35px 0 25px;
+}
+
+#presentes .muted{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 30px;
+    line-height:1.8;
+}
+
+/* SELECT */
+
+#presenteSelect{
+    width:100%;
+    padding:16px 18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.15);
+    background:var(--card2);
+    color:var(--text);
+    font-size:16px;
+    margin-bottom:35px;
+}
+
+/* FORM */
+
+#formPresente{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:25px;
+
+    margin-top:15px;
+
+}
+
+#formPresente>div{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+#formPresente label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    font-size:15px;
+
 }
 
 .input{
+
     width:100%;
-    padding:14px 18px;
-    margin-bottom:18px;
-    border:1px solid #d8d8d8;
+
+    padding:14px 16px;
+
     border-radius:12px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:var(--card2);
+
+    color:var(--text);
+
     font-size:16px;
-    transition:.2s;
+
     box-sizing:border-box;
+
 }
 
 .input:focus{
+
     outline:none;
-    border-color:#8b5e3c;
-    box-shadow:0 0 0 3px rgba(139,94,60,.15);
+
+    border-color:var(--primary);
+
 }
 
-select.input{
-    cursor:pointer;
+/* Mensagem ocupa largura toda */
+
+#mensagemPix{
+
+    min-height:140px;
+
+    resize:vertical;
+
 }
 
-label{
-    display:block;
-    font-weight:600;
-    margin-bottom:8px;
-    margin-top:12px;
+/* textarea */
+
+.mensagem{
+
+    grid-column:1 / -1;
+
 }
 
-#formPresente{
-    margin-top:30px;
+/* botão */
+
+.botao-presente{
+
+    grid-column:1 / -1;
+
+    text-align:center;
+
+    margin-top:10px;
+
 }
+
+.botao-presente button{
+
+    min-width:260px;
+
+}
+
+/* Resultado */
 
 #pixFinal{
+
+    margin-top:50px;
+
     text-align:center;
-    animation:fadeIn .5s ease;
+
 }
 
 .pix-image{
+
     width:260px;
+
     max-width:100%;
-    border-radius:14px;
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+    border-radius:15px;
+
+    margin:25px auto;
+
+    display:block;
+
 }
 
 .pix-key{
-    margin:25px auto;
+
     max-width:600px;
+
+    margin:25px auto;
+
     padding:18px;
+
     border-radius:12px;
-    background:#f8f8f8;
-    border:2px dashed #8b5e3c;
+
+    background:var(--card2);
+
+    border:1px dashed rgba(255,255,255,.2);
+
     word-break:break-all;
-    font-size:16px;
+
 }
 
-@keyframes fadeIn{
+/* RESPONSIVO */
 
-from{
-    opacity:0;
-    transform:translateY(20px);
+@media(max-width:768px){
+
+#presentes .card{
+
+padding:25px;
+
 }
 
-to{
-    opacity:1;
-    transform:translateY(0);
+#formPresente{
+
+grid-template-columns:1fr;
+
+}
+
+.botao-presente button{
+
+width:100%;
+
 }
 
 }

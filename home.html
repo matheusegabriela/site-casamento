@@ -194,38 +194,31 @@
 
 <div id="formPresente">
 
-    <label>🎁 Presente escolhido</label>
+    <div>
+        <label>🎁 Presente escolhido</label>
+        <input id="presenteEscolhido" class="input" readonly>
+    </div>
 
-    <input
-        id="presenteEscolhido"
-        class="input"
-        readonly>
+    <div>
+        <label>💰 Valor</label>
+        <input id="valorEscolhido" class="input" readonly>
+    </div>
 
-    <label>💰 Valor</label>
+    <div>
+        <label>👤 Seu nome</label>
+        <input id="nomePix" class="input" placeholder="Digite seu nome">
+    </div>
 
-    <input
-        id="valorEscolhido"
-        class="input"
-        readonly>
+    <div class="mensagem">
+        <label>💌 Mensagem para os noivos</label>
+        <textarea id="mensagemPix" class="input" placeholder="Escreva uma mensagem..."></textarea>
+    </div>
 
-    <label>👤 Seu nome</label>
-
-    <input
-        id="nomePix"
-        class="input"
-        placeholder="Digite seu nome">
-
-    <label>💌 Mensagem para os noivos</label>
-
-    <textarea
-        id="mensagemPix"
-        class="input"
-        rows="5"
-        placeholder="Escreva uma mensagem..."></textarea>
-
-    <button class="primary" onclick="enviarPix()">
-        Continuar ❤️
-    </button>
+    <div class="botao-presente">
+        <button class="primary" onclick="enviarPix()">
+            Continuar ❤️
+        </button>
+    </div>
 
 </div>
 

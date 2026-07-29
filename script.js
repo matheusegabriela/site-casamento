@@ -191,34 +191,33 @@ async function enviarPix() {
 
     try {
 
-        await fetch("https://script.google.com/macros/s/AKfycbygQ2aZKRi3OOokwWdjZ84-7Njosq6rXoqW7uy7MXY4kwwP71OEOnGzYY-wkicT1uII3g/exec", {
+        const resposta = await fetch("https://script.google.com/macros/s/AKfycbygQ2aZKRi3OOokwWdjZ84-7Njosq6rXoqW7uy7MXY4kwwP71OEOnGzYY-wkicT1uII3g/exec", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+        "Content-Type": "text/plain;charset=UTF-8"
+    },
+    body: JSON.stringify({
+        nome,
+        presente,
+        valor,
+        mensagem
+    })
+});
 
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-
-                nome: nome,
-                presente: presente,
-                valor: valor,
-                mensagem: mensagem
-
-            })
-
-        });
+       console.log("Status:", resposta.status);
+console.log("Resposta:", await resposta.text()); 
 
         document.getElementById("formPresente").style.display = "none";
         document.getElementById("pixFinal").style.display = "block";
 
     } catch (e) {
 
-        console.error(e);
-        alert("Erro ao enviar os dados.");
+    console.error(e);
 
-    }
+    alert(e.message);
+
+}
 
 }
 

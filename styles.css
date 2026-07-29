@@ -847,3 +847,31 @@ width:100%;
 }
 
 }
+/* ===== CAMPOS DA ABA PRESENTES ===== */
+
+#presentes input,
+#presentes select,
+#presentes textarea {
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+#presentes input:focus,
+#presentes select:focus,
+#presentes textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+}
+
+#presentes label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+#presentes .form-group {
+    margin-bottom: 18px;
+}

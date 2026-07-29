@@ -190,6 +190,10 @@
 
     <option value="Presente Surpresa|2000">🎁 Presente Surpresa - R$ 2.000</option>
 
+<option value="Um jantar romântico|100">🍝 Um jantar romântico - R$ 100</option>
+
+<option value="Uma noite de cinema e pipoca|150">🎬 Uma noite de cinema e pipoca - R$ 150</option>
+
 </select>
 
 <div id="formPresente">
@@ -201,7 +205,11 @@
 
     <div>
         <label>💰 Valor</label>
-        <input id="valorEscolhido" class="input" readonly>
+        <input
+    type="number"
+    id="valorEscolhido"
+    min="1"
+    step="1">
     </div>
 
     <div>
@@ -233,7 +241,7 @@
             </p>
 
             <img
-                src="assets/img/pix/qr-pix.png"
+                src="assets/img/pix.jpeg"
                 alt="QR Code Pix"
                 class="pix-image">
 

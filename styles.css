@@ -900,3 +900,22 @@ width:100%;
     color:#777;
     line-height:1.4;
 }
+#presentes select option {
+    background: #ffffff;
+    color: #333333;
+}
+/* Campo fechado */
+.tema-noivo #presenteSelect {
+    background: #fff;
+    color: #333;
+}
+
+/* Lista aberta */
+.tema-noivo #presenteSelect option {
+    background: #1f1f1f;
+    color: #fff;
+}
+.tema-noivo #presenteEscolhido {
+    background: #fff;
+    color: #333 !important;
+}

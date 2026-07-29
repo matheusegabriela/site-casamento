@@ -233,10 +233,10 @@ function atualizarPresente() {
 
     }
 
-    const dados = select.value.split("|");
+    const [presente, valor] = select.value.split("|");
 
-    document.getElementById("presenteEscolhido").value = dados[0];
-    document.getElementById("valorEscolhido").value = "R$ " + dados[1];
+    document.getElementById("presenteEscolhido").value = presente;
+    document.getElementById("valorEscolhido").value = `R$ ${valor}`;
 
 }
 

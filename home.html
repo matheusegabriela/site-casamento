@@ -146,7 +146,13 @@
 
 <select id="presenteSelect" class="input" onchange="atualizarPresente()">
 
-    <option value="">Selecione um presente...</option>
+  <option value="">Selecione um presente...</option>
+  
+  <option value="Um jantar romântico|100">🍝 Um jantar romântico - R$ 100</option>
+
+<option value="Uma noite de cinema e pipoca|150">🎬 Uma noite de cinema e pipoca - R$ 150</option>
+
+    
 
     <option value="Jogo de Taças|200">🍷 Jogo de Taças - R$ 200</option>
 
@@ -190,9 +196,6 @@
 
     <option value="Presente Surpresa|2000">🎁 Presente Surpresa - R$ 2.000</option>
 
-<option value="Um jantar romântico|100">🍝 Um jantar romântico - R$ 100</option>
-
-<option value="Uma noite de cinema e pipoca|150">🎬 Uma noite de cinema e pipoca - R$ 150</option>
 
 </select>
 
@@ -205,11 +208,15 @@
 
     <div>
         <label>💰 Valor</label>
-        <input
-    type="number"
+<input
+    type="text"
     id="valorEscolhido"
-    min="1"
-    step="1">
+    inputmode="numeric"
+    placeholder="Digite o valor">
+
+    <small class="valor-info">
+        💛 O valor acima é apenas uma sugestão. Você pode alterá-lo livremente caso deseje.
+    </small>
     </div>
 
     <div>

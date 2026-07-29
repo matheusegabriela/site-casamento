@@ -875,3 +875,28 @@ width:100%;
 #presentes .form-group {
     margin-bottom: 18px;
 }
+#valorEscolhido{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #e7e7e7;
+    border-radius:14px;
+    background:#fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.05);
+    font-size:16px;
+    transition:.2s;
+    box-sizing:border-box;
+}
+
+#valorEscolhido:focus{
+    outline:none;
+    border-color:#d4af37;
+    box-shadow:0 0 0 4px rgba(212,175,55,.15);
+}
+
+.valor-info{
+    display:block;
+    margin-top:8px;
+    font-size:13px;
+    color:#777;
+    line-height:1.4;
+}
